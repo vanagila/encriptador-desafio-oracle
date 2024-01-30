@@ -10,9 +10,57 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Encriptador Oracle One</title>
+    <script src="./js/script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <img src="./img/logo.png" alt="Logo Alura" />
+    </header>
+
+    <main>
+      <section class="input-section">
+        <textarea
+          name="uncryptedText"
+          id="uncrypted-text"
+          cols="30"
+          rows="50"
+          placeholder="Digite seu texto"
+        ></textarea>
+        <span>Apenas letras minusculas e sem acento.</span>
+
+        <div class="btn-wrapper">
+          <button id="encrypt-btn">Criptografar</button>
+          <button id="decrypt-btn">Descriptografar</button>
+        </div>
+      </section>
+
+      <section class="result-section">
+        <div class="no-result hidden">
+            <img
+              src="./img/ilustration.svg"
+              alt="Ilustracao garoto olhando atraves de uma lupa"
+            />
+            <h3 id="no-result-title">Nenhuma mensagem encontrada</h3>
+            <p>
+              Digite um texto que você deseja criptografar ou descriptografar.
+            </p>
+        </div>
+
+        <!-- <div class="show-result hidden">
+          <p id="encrypted-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
+            montes, sit et diam risus scelerisque vitae est. Tortor maecenas
+            nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit
+            elit. Libero, sodales duis fames id diam feugiat aliquet non
+            egestas.
+          </p>
+
+          <button id="copy-btn">Copiar</button> -->
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
