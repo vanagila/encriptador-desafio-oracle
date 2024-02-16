@@ -97,11 +97,13 @@ button {
   flex-direction: column;
   justify-content: space-between;
   padding: 32px;
+  width: 100%;
 }
 
 .show-result p {
   font-size: 2.4rem;
   text-align: left;
+  word-break: break-all;
 }
 
 #copy-btn {
@@ -109,4 +111,8 @@ button {
   color: var(--db-300);
   background: none;
   border: solid 1px var(--db-300);
+}
+
+.hidden {
+  display: none;
 }
