@@ -1,48 +1,83 @@
-// const messageInput = document.getElementById("uncrypted-text");
-// const encryptBtn = document.getElementById("encrypt-btn");
-// const uncryptBtn = document.getElementById("uncrypt-btn");
+const messageInput = document.getElementById("uncrypted-text");
+const showResult = document.querySelector(".show-result");
+const noResult = document.querySelector(".no-result");
+const encryptedText = document.getElementById("encrypted-text");
+const encryptBtn = document.getElementById("encrypt-btn");
+const decryptBtn = document.getElementById("decrypt-btn");
 
-// const encrypt = () => {
-//   const encryptChars = {
-//     e: "enter",
-//     i: "imes",
-//     a: "ai",
-//     o: "ober",
-//     u: "ufat",
-//   };
+const encrypt = () => {
+  const encryptChars = {
+    e: "enter",
+    i: "imes",
+    a: "ai",
+    o: "ober",
+    u: "ufat",
+  };
 
-//   const originalMessage = messageInput.value;
-//   let encryptedMessage = "";
+  const originalMessage = messageInput.value.toLowerCase();
 
-//   for (let counter = 0; counter < originalMessage.length; counter++) {
-//     const char = originalMessage[counter];
-//     // console.log(char);
-//     encryptedMessage += encryptChars[char] || char;
-//     console.log(encryptChars[char], char); //char retorna undefined quando a letra nao esta no encryptChars
-//   }
+  const regex = /[^\u0000-\u007F]+/;
 
-//   console.log(encryptedMessage);
-// };
+  if (regex.test(originalMessage)) {
+    alert(
+      "Não devem ser utilizados letras com acentos nem caracteres especiais"
+    );
+    return;
+  }
 
-// const decrypt = () => {
-//   const decryptChars = {
-//     enter: "e",
-//     imes: "i",
-//     ai: "a",
-//     ober: "o",
-//     ufat: "u",
-//   };
+  let encryptedMessage = "";
 
-//   const originalMessage = messageInput.value.split(" ");
-//   let decryptedMessage = "";
+  for (let counter = 0; counter < originalMessage.length; counter++) {
+    const char = originalMessage[counter];
 
-//   for (let counter = 0; counter < originalMessage.length; counter++) {
-//     const char = originalMessage[counter];
-//     decryptedMessage += decryptChars[char] || char;
-//   }
+    encryptedMessage += encryptChars[char] || char;
+  }
 
-//   console.log(decryptedMessage);
-// };
+  showResult.classList.remove("hidden");
+  noResult.classList.add("hidden");
+  encryptedText.innerText = encryptedMessage;
+};
 
-// encryptBtn.addEventListener("click", encrypt);
-// uncryptBtn.addEventListener("click", decrypt);
+const decrypt = () => {
+  const decryptChars = {
+    enter: "e",
+    imes: "i",
+    ai: "a",
+    ober: "o",
+    ufat: "u",
+  };
+
+  const originalMessage = messageInput.value;
+  let decryptedMessage = "";
+  let counter = 0;
+
+  while (counter < originalMessage.length) {
+    let found = false;
+
+    for (
+      let decryptCharsLength = 5;
+      decryptCharsLength >= 1;
+      decryptCharsLength--
+    ) {
+      const substring = originalMessage.substr(counter, decryptCharsLength);
+      if (decryptChars[substring]) {
+        decryptedMessage += decryptChars[substring];
+        counter += decryptCharsLength;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      decryptedMessage += originalMessage[counter];
+      counter++;
+    }
+  }
+
+  showResult.classList.remove("hidden");
+  noResult.classList.add("hidden");
+  encryptedText.innerText = decryptedMessage;
+};
+
+encryptBtn.addEventListener("click", encrypt);
+decryptBtn.addEventListener("click", decrypt);
