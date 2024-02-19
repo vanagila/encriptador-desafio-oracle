@@ -14,7 +14,15 @@ const encrypt = () => {
     u: "ufat",
   };
 
-  const originalMessage = messageInput.value.toLowerCase();
+  let originalMessage = messageInput.value;
+
+  const splitedMessage = originalMessage.split("");
+  for (let counter = 0; counter < splitedMessage.length; counter++) {
+    if (splitedMessage[counter] === splitedMessage[counter].toUpperCase()) {
+      alert("Não devem ser utilizados letras maiusculas");
+      return;
+    }
+  }
 
   const regex = /[^\u0000-\u007F]+/;
 
