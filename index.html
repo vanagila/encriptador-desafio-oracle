@@ -29,7 +29,8 @@
           rows="50"
           placeholder="Digite seu texto"
         ></textarea>
-        <span>
+
+        <div class="error-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"
@@ -41,8 +42,8 @@
               d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2"
             />
           </svg>
-          Apenas letras minusculas e sem acento.
-        </span>
+          <p id="error-message">Apenas letras minúsculas e sem acento.</p>
+        </div>
 
         <div class="btn-wrapper">
           <button id="encrypt-btn">Criptografar</button>
@@ -54,7 +55,7 @@
         <div class="no-result">
           <img
             src="./img/ilustration.svg"
-            alt="Ilustracao garoto olhando atraves de uma lupa"
+            alt="Ilustração de um garoto olhando através de uma lupa"
           />
           <h3 id="no-result-title">Nenhuma mensagem encontrada</h3>
           <p>
@@ -64,10 +65,13 @@
 
         <div class="show-result hidden">
           <p id="encrypted-text"></p>
-
-          <button id="copy-btn">Copiar</button>
         </div>
       </section>
     </main>
+
+    <footer>
+      Desenvolvido por
+      <a href="https://vanagiladev.vercel.app/" target="_blank">Vanágila</a>
+    </footer>
   </body>
 </html>

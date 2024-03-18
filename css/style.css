@@ -26,6 +26,16 @@ main {
   color: var(--db-300);
 }
 
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
 span {
   color: var(--gray-400);
   font-size: 1.2rem;
@@ -44,6 +54,7 @@ button {
   border-radius: 24px;
   font-size: 1.6rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #encrypt-btn {
@@ -97,12 +108,13 @@ button {
   word-break: break-all;
 }
 
-#copy-btn {
-  width: 100%;
-  color: var(--db-300);
-  background: none;
-  border: solid 1px var(--db-300);
-  margin-top: 32px;
+footer {
+  text-align: center;
+  margin-top: 5px;
+}
+
+footer a {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -141,6 +153,7 @@ button {
   .result-section {
     min-height: 80vh;
     margin-top: 0;
+    width: 400px;
   }
 
   .no-result {
